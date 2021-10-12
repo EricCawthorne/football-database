@@ -1,9 +1,16 @@
+body {
+    background-color: rgb(37, 110, 192);
+    /* background-color: #1f4eb3; */
+}
+
 .quarterback {
     display: flex;
     border: 1px solid black;
     margin: 1em;
     flex-direction: row;
+    align-content: space-evenly;
     padding: 1em;
+    background-color: rgb(202, 72, 72);
 }
 
 .qb-info {
@@ -11,26 +18,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    padding: .2em .2em 0 .2em;
+    background-color: white;
 }
 
 .stats-container {
     border: 1px solid black;
     display: flex;
     flex-direction: row;
+    margin-left: auto;
 }
 
 .name {
-    margin-top: 0;
-    border: 1px solid black;
+    margin: 0;
 }
 
 .current-team {
-    border: 1px solid black;
 }
 
 .stat-block {
     border: 1px solid black;
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2em;
+    background-color: white;
+    margin: 0;
 }
 
+.total-stat {
+    font-size: xxx-large;
+    text-align: center;
+    padding: 0;
+    margin: .5em
+}
+
+.image {
+    height: 10em;
+    width: 15em;
+    padding: 0;
+}
+
+.head {
+    font-weight: bold;
+    font-size: xx-large;
+}

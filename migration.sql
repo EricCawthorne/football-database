@@ -4,7 +4,8 @@ DROP TABLE IF EXISTS quarterbacks;
 CREATE TABLE quarterbacks (
     id serial NOT NULL PRIMARY KEY,
     name text,
-    current_team text
+    current_team text,
+    image text
 );
 
 CREATE TABLE statistics (
@@ -16,13 +17,13 @@ CREATE TABLE statistics (
     years_played integer
 );
 
-INSERT INTO quarterbacks (name, current_team) VALUES ('Tom Brady', 'Tampa Bay Buccaneers');
-INSERT INTO quarterbacks (name, current_team) VALUES ('Aaron Rodgers', 'Green Bay Packers');
-INSERT INTO quarterbacks (name , current_team) VALUES ('Patrick Mahomes', 'Kansas City Chiefs');
-INSERT INTO quarterbacks (name, current_team) VALUES ('Kyler Murray', 'Arizona Cardinals');
-INSERT INTO quarterbacks (name, current_team) VALUES ('Justin Herbert', 'Los Angeles Chargers');
-INSERT INTO quarterbacks (name, current_team) VALUES ('Josh Allen', 'Buffalo Bills');
-INSERT INTO quarterbacks (name, current_team) VALUES ('Lamar Jackson', 'Baltimore Ravens');
+INSERT INTO quarterbacks (name, current_team, image) VALUES ('Tom Brady', 'Tampa Bay Buccaneers', 'https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/2330.png');
+INSERT INTO quarterbacks (name, current_team, image) VALUES ('Aaron Rodgers', 'Green Bay Packers', 'https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/8439.png');
+INSERT INTO quarterbacks (name , current_team, image) VALUES ('Patrick Mahomes', 'Kansas City Chiefs', 'https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/3139477.png');
+INSERT INTO quarterbacks (name, current_team, image) VALUES ('Kyler Murray', 'Arizona Cardinals', 'https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/3917315.png');
+INSERT INTO quarterbacks (name, current_team, image) VALUES ('Justin Herbert', 'Los Angeles Chargers', 'https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/4038941.png');
+INSERT INTO quarterbacks (name, current_team, image) VALUES ('Josh Allen', 'Buffalo Bills', 'https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png');
+INSERT INTO quarterbacks (name, current_team, image) VALUES ('Lamar Jackson', 'Baltimore Ravens', 'https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/3916387.png');
 
 
 
@@ -38,4 +39,4 @@ INSERT INTO statistics (quarterback_id, passing_yards, passing_touchdowns, inter
 SELECT * FROM quarterbacks;
 SELECT * FROM statistics;
 
-SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;
+SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played, image FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;

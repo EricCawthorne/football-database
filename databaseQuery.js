@@ -25,7 +25,7 @@ app.get('/quarterbacks', async (req, res) => {
 app.get('/quarterbacks-with-stats', async (req, res) => {
     let client = await pool.connect();
    let quarterbacksWithStats = await pool.query(
-       'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;'
+       'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played, image FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;'
    );
    res.set('Content-Type', 'application/json')
    res.status(200)
