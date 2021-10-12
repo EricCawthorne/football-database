@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Pool } = require('pg');
 const express = require('express');
 const app = express();
@@ -10,6 +11,7 @@ const pool = new Pool({
 });
 
 app.get('/quarterbacks', async (req, res) => {
+    const client = await pool.connect();
     let quarterbacks = await pool.query(
         'SELECT * FROM quarterbacks'
     );
@@ -19,6 +21,7 @@ app.get('/quarterbacks', async (req, res) => {
  });
 
 app.get('/quarterbacks-with-stats', async (req, res) => {
+    let client = await pool.connect();
    let quarterbacksWithStats = await pool.query(
        'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;'
    );
@@ -29,6 +32,7 @@ app.get('/quarterbacks-with-stats', async (req, res) => {
 
 app.get('/quarterbacks-with-stats/:id', async (req, res) => {
     let id = req.params.id
+    const client = await pool.connect();
     let quarterbackStats = await pool.query(
         'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id WHERE id = $1;',
          [id]
@@ -150,3 +154,5 @@ app.listen(3000, (error) => {
         console.log('Listening at port 3000')
     }
 })
+
+// https://git.heroku.com/blooming-anchorage-04076.git
