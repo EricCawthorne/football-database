@@ -5,7 +5,7 @@
   "main": "databaseQuery.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon databaseQuery.js"
+    "start": "nodemon databaseQuery.js "
   },
   "author": "",
   "license": "ISC",

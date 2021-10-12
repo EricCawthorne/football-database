@@ -147,7 +147,7 @@ app.delete('/quarterbacks-with-stats/:id', async (req,res) =>{
     }
 })
 
-app.listen(3000, (error) => {
+app.listen(process.env.PORT, (error) => {
     if (error) {
         console.log("Something went wrong")
     } else {
