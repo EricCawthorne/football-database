@@ -1,0 +1,36 @@
+.quarterback {
+    display: flex;
+    border: 1px solid black;
+    margin: 1em;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.qb-info {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.stats-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    margin-top: 0;
+    border: 1px solid black;
+}
+
+.current-team {
+    border: 1px solid black;
+}
+
+.stat-block {
+    border: 1px solid black;
+    padding: 1em;
+}
+

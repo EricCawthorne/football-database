@@ -36,7 +36,7 @@ app.get('/quarterbacks-with-stats/:id', async (req, res) => {
     let id = req.params.id
     const client = await pool.connect();
     let quarterbackStats = await pool.query(
-        'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id WHERE id = $1;',
+        'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id WHERE name = $1;',
          [id]
          );
          if (quarterbackStats.rows.length != 0) {
