@@ -2,9 +2,11 @@ require('dotenv').config();
 const { Pool } = require('pg');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 app.use(express.json());
 app.use(express.static('public'));
+app.use(cors());
 
 const pool = new Pool({
     database: 'quarterback-statistics'
