@@ -1,17 +1,16 @@
 require('dotenv').config();
-const { pool } = require('./db/db_config')
+const { Pool } = require('pg');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const { Pool } = require('pg');
 
 app.use(express.json());
 app.use(express.static('public'));
 app.use(cors());
 
-// const pool = new Pool({
-//     database: 'quarterback-statistics'
-// });
+const pool = new Pool({
+    database: 'quarterback-statistics'
+});
 
 app.get('/quarterbacks', async (req, res) => {
     const client = await pool.connect();
