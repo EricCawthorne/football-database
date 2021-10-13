@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { pool } = require('./db_config')
-// const { Pool } = require('pg');
+const { Pool } = require('pg');
 const express = require('express');
 const app = express();
 const cors = require('cors');
