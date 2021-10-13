@@ -1,5 +1,6 @@
 require('dotenv').config();
-const { Pool } = require('pg');
+const { db } = require('./db/db_config')
+// const { Pool } = require('pg');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -23,8 +24,8 @@ app.get('/quarterbacks', async (req, res) => {
  });
 
 app.get('/quarterbacks-with-stats', async (req, res) => {
-    let client = await pool.connect();
-   let quarterbacksWithStats = await pool.query(
+    let client = await db.connect();
+   let quarterbacksWithStats = await db.query(
        'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played, image FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;'
    );
    res.set('Content-Type', 'application/json')
