@@ -1,6 +1,6 @@
 require('dotenv').config();
-// const { pool } = require('./db_config')
-const { Pool } = require('pg');
+const { pool } = require('./db_config')
+// const { Client } = require('pg');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -14,7 +14,7 @@ app.use(cors());
 // });
 
 app.get('/quarterbacks', async (req, res) => {
-    const client = await pool.connect();
+    // const client = await pool.connect();
     let quarterbacks = await pool.query(
         'SELECT * FROM quarterbacks'
     );
@@ -24,7 +24,7 @@ app.get('/quarterbacks', async (req, res) => {
  });
 
 app.get('/quarterbacks-with-stats', async (req, res) => {
-    let client = await pool.connect();
+    // let client = await Client.connect();
    let quarterbacksWithStats = await pool.query(
        'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played, image FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;'
    );
@@ -35,7 +35,7 @@ app.get('/quarterbacks-with-stats', async (req, res) => {
 
 app.get('/quarterbacks-with-stats/:id', async (req, res) => {
     let id = req.params.id
-    const client = await pool.connect();
+    // const client = await pool.connect();
     let quarterbackStats = await pool.query(
         'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id WHERE name = $1;',
          [id]
