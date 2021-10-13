@@ -1,9 +1,10 @@
 require('dotenv').config();
-const { pool } = require('./db_config.js')
-const { Pool } = require('pg');
+const pool = require('./db_config.js')
+// const { Pool } = require('pg');
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const port = process.env.PORT
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -154,7 +155,7 @@ app.listen(process.env.PORT, (error) => {
     if (error) {
         console.log("Something went wrong")
     } else {
-        console.log('Listening at port 3000')
+        console.log(`Listening at port ${port}`)
     }
 })
 
