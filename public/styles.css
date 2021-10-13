@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body {
     background-color: rgb(30, 91, 161);
     /* background-color: #1f4eb3; */
@@ -31,11 +33,12 @@ body {
 }
 
 .name {
+    letter-spacing: .03em;
+    font-family: 'Bebas Neue', cursive;
     margin: 0;
 }
 
-.current-team {
-}
+
 
 .stat-block {
     border: 1px solid black;
@@ -80,6 +83,9 @@ body {
 .search-head {
     color: white;
     font-size: xxx-large;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: .05em;
+    margin-bottom: .5em;
 }
 
 .search-bar {
@@ -115,6 +121,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin: 0;
+    margin-left: 3em;
 }
 
 .nfl-logo {
