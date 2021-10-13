@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { pool } = require('./db_config')
+const { pool } = require('./db_config.js')
 const { Pool } = require('pg');
 const express = require('express');
 const app = express();
@@ -14,8 +14,8 @@ app.use(cors());
 // });
 
 app.get('/quarterbacks', async (req, res) => {
-    // const client = await pool.connect();
-    let quarterbacks = await pool.query(
+    const client = await pool.connect();
+    let quarterbacks = await client.query(
         'SELECT * FROM quarterbacks'
     );
     res.set('Content-Type', 'application/json')
@@ -24,8 +24,8 @@ app.get('/quarterbacks', async (req, res) => {
  });
 
 app.get('/quarterbacks-with-stats', async (req, res) => {
-    // let client = await Client.connect();
-   let quarterbacksWithStats = await pool.query(
+    let client = await pool.connect();
+   let quarterbacksWithStats = await client.query(
        'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played, image FROM quarterbacks INNER JOIN statistics ON id = quarterback_id;'
    );
    res.set('Content-Type', 'application/json')
@@ -35,8 +35,8 @@ app.get('/quarterbacks-with-stats', async (req, res) => {
 
 app.get('/quarterbacks-with-stats/:id', async (req, res) => {
     let id = req.params.id
-    // const client = await pool.connect();
-    let quarterbackStats = await pool.query(
+    const client = await pool.connect();
+    let quarterbackStats = await client.query(
         'SELECT id, name, current_team, passing_yards, passing_touchdowns, interceptions, passer_rating, years_played FROM quarterbacks INNER JOIN statistics ON id = quarterback_id WHERE name = $1;',
          [id]
          );
