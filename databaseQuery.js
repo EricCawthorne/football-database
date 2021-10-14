@@ -32,6 +32,7 @@ app.get('/quarterbacks-with-stats', async (req, res) => {
    res.set('Content-Type', 'application/json')
    res.status(200)
    res.end(JSON.stringify(quarterbacksWithStats.rows))
+   client.release();
 });
 
 app.get('/quarterbacks-with-stats/:id', async (req, res) => {
