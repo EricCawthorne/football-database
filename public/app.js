@@ -1,5 +1,7 @@
 function quarterbackData() {
-    $.get('http://localhost:3000/quarterbacks-with-stats', (data) => {
+        var selectedOption = document.getElementById("sort_bar").value; 
+        $('.results-container').empty()
+    $.get(`http://localhost:3000/quarterbacks-with-stats/${selectedOption}`, (data) => {
         for (let i = 0; i < data.length; i++) {
             //player with stats container
             let qbDiv = $(`<div class="quarterback" id="${data[i].name.toLowerCase()}"></div>`)
@@ -67,3 +69,9 @@ $('.search-bar').keypress(() => {
         element.scrollIntoView({behavior: 'smooth', block:'center'})
     }
 });
+
+function getSortOption() { 
+    var selectedOption = document.getElementById("sort_bar").value; 
+   console.log(selectedOption);
+};
+

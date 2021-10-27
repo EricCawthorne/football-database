@@ -13,8 +13,21 @@
     <div class="top-container">
         <div>
             <h1 class='search-head'>Search Quarterbacks by Name</h1>
-            <input type="search" class="search-bar" placeholder="Search...">
-            <button type="button" class="search-button">Get stats</button>
+            <div>
+                <input type="search" class="search-bar" placeholder="Search...">
+                <button type="button" class="search-button">Get stats</button>
+            </div>
+        </div>
+        <div class="sort_div">
+            <label for="sort" class="sort_label">Sort By...</label>
+            <select name="sort" id="sort_bar" onchange="quarterbackData()">
+                <option value="last_name">Last Name</option>
+                <option value="passing_yards">Passing Yards</option>
+                <option value="passing_touchdowns">Passing Touchdowns</option>
+                <option value="interceptions">Interceptions</option>
+                <option value="passer_rating">Passer Rating</option>
+                <option value="years_played">Years Played</option>
+            </select>
         </div>
         <img src ='http://assets.stickpng.com/images/5895deb9cba9841eabab6099.png' class='nfl-logo'>
     </div>

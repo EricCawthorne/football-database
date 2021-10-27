@@ -96,6 +96,7 @@ body {
     border-radius: 2em;
     font-size: larger;
     padding: 1em;
+    border: 1px solid white;
 }
 
 .search-button {
@@ -128,4 +129,29 @@ body {
     height: 20em;
     width: 15em;
     margin: 1em 10em 0 0;
+}
+
+.sort_label {
+    font-family: 'Bebas Neue', cursive;
+    font-size: xxx-large;
+    color: white;
+}
+
+.sort_div {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 10em 0 10em;
+}
+
+#sort_bar {
+    width: 20em;
+    height: 2.5em;
+    padding-left: .5em;
+    padding-right: .5em;
+    font-size: large;
+    background-color: rgb(202, 72, 72);
+    color: white;
+    border-radius: 2em;
+    margin-top: .5em;
+    border: 1px solid white;
 }
