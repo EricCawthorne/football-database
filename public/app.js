@@ -1,7 +1,7 @@
 function quarterbackData() {
         var selectedOption = document.getElementById("sort_bar").value; 
         $('.results-container').empty()
-    $.get(`http://localhost:3000/quarterbacks-with-stats/${selectedOption}`, (data) => {
+    $.get(`/quarterbacks-with-stats/${selectedOption}`, (data) => {
         for (let i = 0; i < data.length; i++) {
             //player with stats container
             let qbDiv = $(`<div class="quarterback" id="${data[i].name.toLowerCase()}"></div>`)
